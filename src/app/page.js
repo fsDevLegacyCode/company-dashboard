@@ -1,95 +1,27 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import React from "react"
+import axios from "axios"
 
-export default function Home() {
+export default function App() {
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
+    <div className="content">
+      <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
+      <div className="gallery">
+        <div className="gL">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</div>
+        <div className="gM"><img src="https://www.geckoboard.com/uploads/business-dashboard-example.png"/></div>
+        <div className="gR">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</div>
       </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
+      <div className="gallery">
+        <div className="gL">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</div>
+        <div className="gM">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</div>
+        <div className="gR"><img src="https://www.geckoboard.com/uploads/business-dashboard-example.png"/></div>
       </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
+      <div className="gallery">
+        <div className="gL">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulu√√√Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.Mauris massa. Vestibulum lacinia arcu eget nulla.m lacinia arcu eget nulla.</div>
+        <div className="gM"><img src="https://www.geckoboard.com/uploads/business-dashboard-example.png"/></div>
+        <div className="gR">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer nec odio. Praesent libero. Sed cursus ante dapibus diam. Sed nisi. Nulla quis sem at nibh elementum imperdiet. Duis sagittis ipsum. Praesent mauris. Fusce nec tellus sed augue semper porta. Mauris massa. Vestibulum lacinia arcu eget nulla.</div>
       </div>
-    </main>
+      
+    </div>
   );
 }
