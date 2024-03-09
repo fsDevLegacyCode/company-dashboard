@@ -1,5 +1,5 @@
 'use client'
-import React from "react";
+import React, {useState} from "react";
 import axios from 'axios';
 
 
@@ -7,7 +7,7 @@ import axios from 'axios';
 export default function employees(){
 
  
-  const formDataClass = {name:'',surname:'',email:''}
+  const [formDataClass, setFormDataClass] = useState({name:'',surname:'',email:''});
 
   async function login() {
     try {
@@ -18,6 +18,15 @@ export default function employees(){
     }
   }
 
+    // Function to handle form field changes
+    const handleInputChange = (e) => {
+      const { name, value } = e.target;
+      setFormDataClass(prevState => ({
+        ...prevState,
+        [name]: value
+      }));
+    }
+
 
     return(
      
@@ -27,9 +36,9 @@ export default function employees(){
           <div><h3>Formulário de Empregados</h3></div>
           <div>
           <form>
-                <input name="name" type="text" value={formDataClass.name} onChange={(e)=>formDataClass.name=e.target.value} placeholder="Insert Your Name"></input>
-                <input name="surname" type="text" value={formDataClass.surname} onChange={(e)=>formDataClass.surname=e.target.value} placeholder="Insert Your Surname"></input>
-                <input name="email" type="email"value={formDataClass.email} onChange={(e)=>formDataClass.email=e.target.value} placeholder="Insert your Email"></input>
+          <input name="name" type="text" value={formDataClass.name} onChange={handleInputChange} placeholder="Insert Your Name" />
+            <input name="surname" type="text" value={formDataClass.surname} onChange={handleInputChange} placeholder="Insert Your Surname" />
+            <input name="email" type="email" value={formDataClass.email} onChange={handleInputChange} placeholder="Insert your Email" />
                 <div className="formButtons">
                   <button type="button">Save</button>
                   <button type="button" onClick={login}>Submit</button>
