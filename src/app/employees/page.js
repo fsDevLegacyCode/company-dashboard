@@ -1,52 +1,61 @@
 'use client'
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import axios from 'axios';
 
 
 
-export default function employees(){
+export default function Employees(){
 
- 
-  const [formDataClass, setFormDataClass] = useState({name:'',surname:'',email:''});
-
-  async function login() {
-    try {
-      const response = await axios.post("/api/submitFormData",formDataClass);
-      alert("Hello");
-    } catch (error) {
-      console.log(error);
+    const [users,setUsers] = useState([]);
+    useEffect(() => {
+    const getUsers = async ()=>{
+      try {
+        const response = await axios.get("https://dummyjson.com/users");
+        setUsers(response.data.users);
+      } catch (error) {
+        console.log(error);
+      }
     }
-  }
-
-    // Function to handle form field changes
-    const handleInputChange = (e) => {
-      const { name, value } = e.target;
-      setFormDataClass(prevState => ({
-        ...prevState,
-        [name]: value
-      }));
-    }
-
-
+    getUsers();
+  }, []);
     return(
      
         <div className="content">
         <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
         <div className="formulary">
-          <div><h3>Formulário de Empregados</h3></div>
-          <div>
-          <form>
-          <input name="name" type="text" value={formDataClass.name} onChange={handleInputChange} placeholder="Insert Your Name" />
-            <input name="surname" type="text" value={formDataClass.surname} onChange={handleInputChange} placeholder="Insert Your Surname" />
-            <input name="email" type="email" value={formDataClass.email} onChange={handleInputChange} placeholder="Insert your Email" />
-                <div className="formButtons">
-                  <button type="button">Save</button>
-                  <button type="button" onClick={login}>Submit</button>
-                  
-                </div>
-            </form>
+          <div><h3>Lista de Empregados</h3></div>
+              <div>
+              <table>
+                <thead>
+                  <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Email</th>
+                    <th>Birthday</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {users ? 
+                    users.map(user => (
+                      <tr key={user.id}>
+                        <td>{user.id}</td>
+                        <td>{user.firstName+" "+user.lastName}</td>
+                        <td>{user.age}</td>
+                        <td>{user.email}</td>
+                        <td>{user.birthDate}</td>
+                      </tr>
+                    )) 
+                    : 
+                    <tr>
+                      <td colSpan="5">Loading...</td>
+                    </tr>
+                  }
+                </tbody>
+              </table>
+              </div>
           </div>
-        </div>
+        
 
         
       </div>

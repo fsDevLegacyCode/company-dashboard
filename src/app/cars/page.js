@@ -4,7 +4,8 @@ import axios from 'axios';
 
 
 
-export default function employees(){
+export default function Cars(){
+
 
  
   const [formDataClass, setFormDataClass] = useState({name:'',brand:'',plate:''});

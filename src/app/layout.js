@@ -2,7 +2,8 @@
 import { Inter } from "next/font/google";
 import Head from "next/head";
 import "./globals.css";
-
+import axios from 'axios';
+import { useState, useEffect } from "react";
 const inter = Inter({ subsets: ["latin"] });
 
 const metadata = {
@@ -11,6 +12,23 @@ const metadata = {
 };
 
 export default function DashboardLayout({ children }) {
+
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    const getAllPosts = async () => {
+      try {
+        const response = await axios.get('https://dummyjson.com/posts');
+        setPosts(response.data.posts);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+
+    getAllPosts();
+  }, []);
+
+
+
   return (
     <html>
       <Head>
@@ -53,7 +71,19 @@ export default function DashboardLayout({ children }) {
           </div>
           <div className="leftContent"></div>
           <div className="middleContent">{children}</div>
-          <div className="rightContent"></div>
+          <div className="rightContent">
+          {posts.length > 0 ? (
+              posts.map(post => (
+                <div className="news" key={post.id}>
+                  <h2>{post.title}</h2>
+                  <p>{post.body}</p>
+                  {/* Render other fields as needed */}
+                </div>
+              ))
+            ) : (
+              <div>Loading...</div>
+            )}
+          </div>
         </div>
       </body>
     </html>

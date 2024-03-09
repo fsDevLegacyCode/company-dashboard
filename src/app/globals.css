@@ -3,7 +3,7 @@
   flex-direction: row;
   justify-content: center; /* Align items to the left */
   align-items: center;
-  gap: 4px;
+  gap: 5%;
 }
 
 
@@ -24,18 +24,69 @@
 }
 
 .middleContent{
-  flex: 3;
+  flex: 2;
+  height: 925px;
+  overflow: auto;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.middleContent::-webkit-scrollbar {
+  width: 0; /* Set the width of the scrollbar to 0 */
+}
+
+/* Optional: Style scrollbar track */
+.middleContent::-webkit-scrollbar-track {
+  background: transparent; /* Set scrollbar track background color */
+}
+
+/* Optional: Style scrollbar thumb */
+.middleContent::-webkit-scrollbar-thumb {
+  background: #888; /* Set scrollbar thumb color */
+  border-radius: 5px; /* Set scrollbar thumb border radius */
+}
+
+.content{
+  
 }
 
 .rightContent{
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 925px;
+  overflow: auto;
+}
+
+.news{
+
+  background-color: rgb(188, 188, 188);
+  margin-bottom: 4px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Edge */
+.rightContent::-webkit-scrollbar {
+  width: 0; /* Set the width of the scrollbar to 0 */
+}
+
+/* Optional: Style scrollbar track */
+.rightContent::-webkit-scrollbar-track {
+  background: transparent; /* Set scrollbar track background color */
+}
+
+/* Optional: Style scrollbar thumb */
+.rightContent::-webkit-scrollbar-thumb {
+  background: #888; /* Set scrollbar thumb color */
+  border-radius: 5px; /* Set scrollbar thumb border radius */
 }
 
 .formButtons{
   display: flex;
-  justify-content: end;
+  justify-content: center;
   gap: 4px;
-  width:102%;
+
 }
 
 .logo{
@@ -46,7 +97,7 @@
 form input{
   display: flex;
   flex-direction: column;
-  width: 100%;
+  width: 90%;
   margin-bottom: 4px;
   border-radius: 4px;
   border-width: 1px;
@@ -106,5 +157,37 @@ img{
   width: 100%;
   height: auto;
   border-radius: 4px;
+}
+
+/* Apply styles to the table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Apply styles to the table headers */
+th {
+  background-color: #f2f2f2;
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+/* Apply styles to the table rows */
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* Apply alternate background color to even rows */
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Apply hover effect to table rows */
+tr:hover {
+  background-color: #ddd;
 }
 
