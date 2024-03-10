@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useSearchParams } from 'next/navigation'
 
 
-export default function Employee(){
+export default function Cart(){
 
 
     const searchParams = useSearchParams()
@@ -40,9 +40,9 @@ export default function Employee(){
                 const response = await axios.get('https://dummyjson.com/users/' + id);
                 const userData = response.data;
                 setFormDataClass({
-                    name: userData.firstName,
-                    surname: userData.lastName,
-                    email: userData.email
+                    name: userData.name,
+                    brand: userData.brand,
+                    plate: userData.plate
                 });
             } catch (error) {
                 console.log(error);
@@ -56,15 +56,15 @@ export default function Employee(){
 
 
     return(
-        <Suspense>
+     
         <div className="content">
         <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
         <div className="formulary">
           <div><h3>Dados do Empregado</h3></div>
           <form>
-            <label>Username:</label><input name="name" type="text" value={formDataClass.name} onChange={handleInputChange} placeholder="Insert Your Name" />
-            <label>Surname:</label><input name="surname" type="text" value={formDataClass.surname} onChange={handleInputChange} placeholder="Insert Car Brand" />
-            <label>Email:</label><input name="email" type="text" value={formDataClass.email} onChange={handleInputChange} placeholder="Insert Car Plate" />
+            <label>Name:</label><input name="name" type="text" value={formDataClass.name} onChange={handleInputChange} placeholder="Insert Car Name" />
+            <label>Brand:</label><input name="brand" type="text" value={formDataClass.brand} onChange={handleInputChange} placeholder="Insert Car Brand" />
+            <label>Plate:</label><input name="plate" type="text" value={formDataClass.plate} onChange={handleInputChange} placeholder="Insert Car Plate" />
 
                 <div className="formButtons">
                   <button type="button" onClick={redirectUser}>Voltar</button>
@@ -76,6 +76,5 @@ export default function Employee(){
 
         
       </div>
-      </Suspense>
     );
 }

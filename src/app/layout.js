@@ -64,7 +64,7 @@ export default function DashboardLayout({ children }) {
               <a href="/clients">
                 <button>Clients</button>
               </a>
-              <a href="/cars">
+              <a href="/carts">
                 <button>Cars</button>
               </a>
             </nav>
