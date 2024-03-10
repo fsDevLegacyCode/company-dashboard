@@ -6,23 +6,20 @@ import axios from 'axios';
 
 export default function Carts(){
 
-    const [id,setName]=useState("");
+    const [id,setId]=useState("");
     const [carts,setCarts] = useState([]);
     
     
-    const searchKart = async () => {
+    const searchCart = async () => {
       
       try {
-        const response = await axios.get("https://dummyjson.com/carts/"+id);
+        const response = await axios.get("https://dummyjson.com/carts/user/"+id);
         setCarts(response.data.carts);
       } catch (error) {
         console.log(error);
       }
     }
-
-    
-    useEffect(() => {
-    const getUsers = async ()=>{
+    const getCarts = async ()=>{
       try {
         const response = await axios.get("https://dummyjson.com/carts");
         setCarts(response.data.carts);
@@ -30,17 +27,21 @@ export default function Carts(){
         console.log(error);
       }
     }
-    getUsers();
-  }, []);
+    
+    useEffect(() => {
+      getCarts();
+    }, []);
 
     const enterPress = (e) => {
       if(e.key === 'Enter'){
-        searchUsers();
+        searchCart();
+      }else{
+        getCarts();
       }
     }
 
     const redirectUser = (userId)=>{
-      window.location.href = `/employee?id=${userId}`;
+      window.location.href = `/cart?id=${userId}`;
     }
 
 
@@ -52,7 +53,7 @@ export default function Carts(){
         <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
         <div className="formulary">
           <div><h3>Cart List</h3></div>
-          <div><input name="name" value={name} onChange={(e)=>{setName(e.target.value)}} onKeyUp={enterPress} placeholder="Search for a username"></input></div>
+          <div><input name="id" value={id} onChange={(e)=>{setId(e.target.value)}} onKeyUp={enterPress} placeholder="Search for a user Id"></input></div>
               <div>
               <table>
                 <thead>
@@ -69,7 +70,7 @@ export default function Carts(){
                   {carts ?  
                     carts.map(cart => (
                       
-                      <tr key={cart.id} onClick={() => redirectUser(user.id)}>
+                      <tr key={cart.id} onClick={() => redirectUser(cart.id)}>
                         <td>{cart.id}</td>
                         <td>{cart.userId}</td>
                         <td>{cart.totalProducts}</td>

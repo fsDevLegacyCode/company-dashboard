@@ -1,5 +1,5 @@
 'use client'
-import React, {useState, useEffect, Suspense} from "react";
+import React, {useState, useEffect} from "react";
 import axios from 'axios';
 import { useSearchParams } from 'next/navigation'
 
@@ -57,7 +57,7 @@ export default function Employee(){
 
 
     return(
-        <Suspense>
+        
         <div className="content">
         <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
         <div className="formulary">
@@ -77,6 +77,6 @@ export default function Employee(){
 
         
       </div>
-      </Suspense>
+      
     );
 }
