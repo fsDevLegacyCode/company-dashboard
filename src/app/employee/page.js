@@ -8,10 +8,10 @@ import { useSearchParams } from 'next/navigation'
 export default function Employee(){
 
 
-    const searchParams = useSearchParams()
-    const id = searchParams.get('id')
+    const searchParams = typeof window !== 'undefined' ? useSearchParams() : null;
+    const id = searchParams ? searchParams.get('id') : null;
 
-    const [formDataClass, setFormDataClass] = useState({name:'',brand:'',plate:''});
+    const [formDataClass, setFormDataClass] = useState({name:'', surname:'', email:''});
 
     // Function to handle form field changes
     const handleInputChange = (e) => {

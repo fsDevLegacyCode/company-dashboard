@@ -53,7 +53,7 @@ export default function Carts(){
         <div className="content">
         <div><h1>Seja Bem Vindo ao Sistema de Gestão V1.0</h1></div>
         <div className="formulary">
-          <div><h3>Cart List</h3></div>
+          <div><h3>Lista de Carrinhos</h3></div>
           <div><input name="id" value={id} onChange={(e)=>{setId(e.target.value)}} onKeyUp={enterPress} placeholder="Search for a user Id"></input></div>
               <div>
               <table>

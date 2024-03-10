@@ -1,5 +1,4 @@
 'use client'
-export const dynamic = "force-dynamic";
 
 import React, {useState, useEffect} from "react";
 import axios from 'axios';
@@ -9,8 +8,8 @@ import { useSearchParams } from 'next/navigation'
 export default function Cart(){
 
 
-    const searchParams = useSearchParams()
-    const id = searchParams.get('id')
+  const searchParams = typeof window !== 'undefined' ? useSearchParams() : null;
+  const id = searchParams ? searchParams.get('id') : null;
 
     const [cart, setCart] = useState([]);
 
