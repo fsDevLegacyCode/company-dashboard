@@ -24,7 +24,7 @@
 }
 
 .middleContent{
-  flex: 2;
+  flex: 4;
   height: 925px;
   overflow: auto;
 }
@@ -105,6 +105,12 @@ form input{
 
 }
 
+input{
+  width:97.8%;
+  padding:10px;
+  margin-bottom: 20px;
+}
+
 nav button{
   width: 100%;
   height: 3%;
@@ -165,6 +171,7 @@ table {
   border-collapse: collapse;
   border-spacing: 0;
   font-family: Arial, sans-serif;
+  
 }
 
 /* Apply styles to the table headers */
@@ -179,15 +186,55 @@ th {
 td {
   border: 1px solid #ddd;
   padding: 8px;
+
 }
 
 /* Apply alternate background color to even rows */
 tr:nth-child(even) {
   background-color: #f2f2f2;
+  cursor: pointer;
 }
 
 /* Apply hover effect to table rows */
 tr:hover {
   background-color: #ddd;
+}
+
+/* Smartphone layout */
+@media (max-width: 600px) {
+
+  a button{
+    margin:1%;
+    width:98%;
+  }
+
+  .mainContent {
+    flex-direction: column; /* Change to column layout for smartphones */
+    align-items: stretch; /* Stretch items vertically */
+    gap: 2%; /* Reduce gap between items */
+  }
+
+  .leftMenu {
+    position: sticky; /* Remove absolute positioning */
+    width: 100%; /* Take up full width */
+    padding: 0%; /* Adjust padding */
+  }
+
+  .rightContent {
+    height: auto; /* Allow content to expand vertically */
+    overflow: visible; /* Show overflowing content */
+  }
+
+  .middleContent {
+    height: auto; /* Allow content to expand vertically */
+    overflow: visible; /* Show overflowing content */
+  }
+
+    /* Adjust table styles for smaller screens */
+    table {
+      margin-top: 10px; /* Reduce top margin */
+      overflow-y: auto; /* Add vertical scroll for smaller screens */
+    }
+
 }
 
