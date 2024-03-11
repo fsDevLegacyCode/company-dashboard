@@ -53,10 +53,6 @@ export default function DashboardLayout({ children }) {
                 <button>Home</button>
               </a>
 
-              <a href="/admins">
-                <button>Admins</button>
-              </a>
-
               <a href="/employees">
                 <button>Employees</button>
               </a>
